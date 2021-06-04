@@ -1,0 +1,409 @@
+{
+    "dates": {
+        "maximum": "2021-06-30",
+        "minimum": "2021-06-09"
+    },
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg",
+            "genre_ids": [
+                35,
+                80
+            ],
+            "id": 337404,
+            "original_language": "en",
+            "original_title": "Cruella",
+            "overview": "In 1970s London amidst the punk rock revolution, a young grifter named Estella is determined to make a name for herself with her designs. She befriends a pair of young thieves who appreciate her appetite for mischief, and together they are able to build a life for themselves on the London streets. One day, Estella’s flair for fashion catches the eye of the Baroness von Hellman, a fashion legend who is devastatingly chic and terrifyingly haute. But their relationship sets in motion a course of events and revelations that will cause Estella to embrace her wicked side and become the raucous, fashionable and revenge-bent Cruella.",
+            "popularity": 6107.84,
+            "poster_path": "/hjS9mH8KvRiGHgjk6VUZH7OT0Ng.jpg",
+            "release_date": "2021-05-26",
+            "title": "Cruella",
+            "video": false,
+            "vote_average": 8.8,
+            "vote_count": 1415
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wwFBRyekDcKXJwP0mImRJjAnudL.jpg",
+            "genre_ids": [
+                27
+            ],
+            "id": 632357,
+            "original_language": "en",
+            "original_title": "The Unholy",
+            "overview": "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
+            "popularity": 3524.228,
+            "poster_path": "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
+            "release_date": "2021-03-31",
+            "title": "The Unholy",
+            "video": false,
+            "vote_average": 7.1,
+            "vote_count": 742
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/77tui163estZrQ78NBggqDB4n2C.jpg",
+            "genre_ids": [
+                28,
+                80
+            ],
+            "id": 637649,
+            "original_language": "en",
+            "original_title": "Wrath of Man",
+            "overview": "A cold and mysterious new security guard for a Los Angeles cash truck company surprises his co-workers when he unleashes precision skills during a heist. The crew is left wondering who he is and where he came from. Soon, the marksman's ultimate motive becomes clear as he takes dramatic and irrevocable steps to settle a score.",
+            "popularity": 3456.24,
+            "poster_path": "/YxopfHpsCV1oF8CZaL4M3Eodqa.jpg",
+            "release_date": "2021-04-22",
+            "title": "Wrath of Man",
+            "video": false,
+            "vote_average": 8,
+            "vote_count": 575
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/inJjDhCjfhh3RtrJWBmmDqeuSYC.jpg",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "id": 399566,
+            "original_language": "en",
+            "original_title": "Godzilla vs. Kong",
+            "overview": "In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.",
+            "popularity": 1417.39,
+            "poster_path": "/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg",
+            "release_date": "2021-03-24",
+            "title": "Godzilla vs. Kong",
+            "video": false,
+            "vote_average": 8.1,
+            "vote_count": 5792
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/iDdpiUnCeXvBmrkBFpL6lKsZt33.jpg",
+            "genre_ids": [
+                53,
+                18,
+                28,
+                9648
+            ],
+            "id": 578701,
+            "original_language": "en",
+            "original_title": "Those Who Wish Me Dead",
+            "overview": "A young boy finds himself pursued by two assassins in the Montana wilderness with a survival expert determined to protecting him - and a forest fire threatening to consume them all.",
+            "popularity": 1377.769,
+            "poster_path": "/xCEg6KowNISWvMh8GvPSxtdf9TO.jpg",
+            "release_date": "2021-05-05",
+            "title": "Those Who Wish Me Dead",
+            "video": false,
+            "vote_average": 7,
+            "vote_count": 362
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/6zbKgwgaaCyyBXE4Sun4oWQfQmi.jpg",
+            "genre_ids": [
+                28,
+                53,
+                80,
+                35
+            ],
+            "id": 615457,
+            "original_language": "en",
+            "original_title": "Nobody",
+            "overview": "Hutch Mansell, a suburban dad, overlooked husband, nothing neighbor — a \"nobody.\" When two thieves break into his home one night, Hutch's unknown long-simmering rage is ignited and propels him on a brutal path that will uncover dark secrets he fought to leave behind.",
+            "popularity": 1069.612,
+            "poster_path": "/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg",
+            "release_date": "2021-03-26",
+            "title": "Nobody",
+            "video": false,
+            "vote_average": 8.5,
+            "vote_count": 1789
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/z2UtGA1WggESspi6KOXeo66lvLx.jpg",
+            "genre_ids": [
+                18,
+                878,
+                53
+            ],
+            "id": 520763,
+            "original_language": "en",
+            "original_title": "A Quiet Place Part II",
+            "overview": "Following the events at home, the Abbott family now face the terrors of the outside world. Forced to venture into the unknown, they realize that the creatures that hunt by sound are not the only threats that lurk beyond the sand path.",
+            "popularity": 1043.464,
+            "poster_path": "/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg",
+            "release_date": "2021-05-21",
+            "title": "A Quiet Place Part II",
+            "video": false,
+            "vote_average": 7.4,
+            "vote_count": 110
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/7HtvmsLrDeiAgDGa1W3m6senpfE.jpg",
+            "genre_ids": [
+                12,
+                16,
+                10751
+            ],
+            "id": 681260,
+            "original_language": "en",
+            "original_title": "Maya the Bee: The Golden Orb",
+            "overview": "When Maya, a headstrong little bee, and her best friend Willi, rescue an ant princess they find themselves in the middle of an epic bug battle that will take them to strange new worlds and test their friendship to its limits.",
+            "popularity": 616.15,
+            "poster_path": "/tMS2qcbhbkFpcwLnbUE9o9IK4HH.jpg",
+            "release_date": "2021-01-07",
+            "title": "Maya the Bee: The Golden Orb",
+            "video": false,
+            "vote_average": 6.6,
+            "vote_count": 32
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/z8TvnEVRenMSTemxYZwLGqFofgF.jpg",
+            "genre_ids": [
+                28,
+                14,
+                12
+            ],
+            "id": 458576,
+            "original_language": "en",
+            "original_title": "Monster Hunter",
+            "overview": "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.",
+            "popularity": 562.829,
+            "poster_path": "/1UCOF11QCw8kcqvce8LKOO6pimh.jpg",
+            "release_date": "2020-12-03",
+            "title": "Monster Hunter",
+            "video": false,
+            "vote_average": 7,
+            "vote_count": 1690
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9ns9463dwOeo1CK1JU2wirL5Yi1.jpg",
+            "genre_ids": [
+                35,
+                10751,
+                16
+            ],
+            "id": 587807,
+            "original_language": "en",
+            "original_title": "Tom & Jerry",
+            "overview": "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
+            "popularity": 572.018,
+            "poster_path": "/8XZI9QZ7Pm3fVkigWJPbrXCMzjq.jpg",
+            "release_date": "2021-02-11",
+            "title": "Tom & Jerry",
+            "video": false,
+            "vote_average": 7.3,
+            "vote_count": 1423
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/5NxjLfs7Bi07bfZCRl9CCnUw7AA.jpg",
+            "genre_ids": [
+                878,
+                28,
+                12,
+                53
+            ],
+            "id": 412656,
+            "original_language": "en",
+            "original_title": "Chaos Walking",
+            "overview": "Two unlikely companions embark on a perilous adventure through the badlands of an unexplored planet as they try to escape a dangerous and disorienting reality, where all inner thoughts are seen and heard by everyone.",
+            "popularity": 507.681,
+            "poster_path": "/9kg73Mg8WJKlB9Y2SAJzeDKAnuB.jpg",
+            "release_date": "2021-02-24",
+            "title": "Chaos Walking",
+            "video": false,
+            "vote_average": 7.1,
+            "vote_count": 654
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/xXHZeb1yhJvnSHPzZDqee0zfMb6.jpg",
+            "genre_ids": [
+                18,
+                28,
+                12
+            ],
+            "id": 385128,
+            "original_language": "en",
+            "original_title": "F9",
+            "overview": "Dom Toretto is leading a quiet life off the grid with Letty and his son, little Brian, but little do they know, is that danger always lurks just over their peaceful horizon. This time, that threat will force Dom to confront the sins of his past if he’s going to save those he loves most. His crew joins together to stop a world-shattering plot led by the most skilled assassin and high-performance driver they’ve ever encountered: a man who also happens to be Dom’s forsaken brother, Jakob.",
+            "popularity": 477.41,
+            "poster_path": "/bOFaAXmWWXC3Rbv4u4uM9ZSzRXP.jpg",
+            "release_date": "2021-05-19",
+            "title": "F9",
+            "video": false,
+            "vote_average": 8.3,
+            "vote_count": 77
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/7JENyUT8ABxcvrcijDBVpdjgCY9.jpg",
+            "genre_ids": [
+                53,
+                27,
+                9648
+            ],
+            "id": 602734,
+            "original_language": "en",
+            "original_title": "Spiral: From the Book of Saw",
+            "overview": "Working in the shadow of an esteemed police veteran, brash Detective Ezekiel “Zeke” Banks and his rookie partner take charge of a grisly investigation into murders that are eerily reminiscent of the city’s gruesome past.  Unwittingly entrapped in a deepening mystery, Zeke finds himself at the center of the killer’s morbid game.",
+            "popularity": 426.906,
+            "poster_path": "/lcyKve7nXRFgRyms9M1bndNkKOx.jpg",
+            "release_date": "2021-05-12",
+            "title": "Spiral: From the Book of Saw",
+            "video": false,
+            "vote_average": 6.9,
+            "vote_count": 123
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/gr2bdQ12cK4VA7EaIgtmDcbdALP.jpg",
+            "genre_ids": [
+                27,
+                9648,
+                53
+            ],
+            "id": 423108,
+            "original_language": "en",
+            "original_title": "The Conjuring: The Devil Made Me Do It",
+            "overview": "Paranormal investigators Ed and Lorraine Warren encounter what would become one of the most sensational cases from their files. The fight for the soul of a young boy takes them beyond anything they'd ever seen before, to mark the first time in U.S. history that a murder suspect would claim demonic possession as a defense.",
+            "popularity": 214.524,
+            "poster_path": "/isghxwTkgHsSfoEmXK1QZEYTjUl.jpg",
+            "release_date": "2021-05-25",
+            "title": "The Conjuring: The Devil Made Me Do It",
+            "video": false,
+            "vote_average": 8.2,
+            "vote_count": 24
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/sOA1ubMAQ6dCIrjoFIEDt3FCxFf.jpg",
+            "genre_ids": [
+                878,
+                10749,
+                53
+            ],
+            "id": 597890,
+            "original_language": "en",
+            "original_title": "Voyagers",
+            "overview": "With the future of the human race at stake, a group of young men and women -- bred for intelligence and obedience -- embark on an expedition to colonize a distant planet. When they uncover disturbing secrets about the mission, they defy their training and begin to explore their most primitive natures. As life on the ship descends into chaos, they soon become consumed by fear, lust and an insatiable hunger for power.",
+            "popularity": 161.646,
+            "poster_path": "/gn2vCmWO7jQBBto9SYuBHYZARaU.jpg",
+            "release_date": "2021-04-08",
+            "title": "Voyagers",
+            "video": false,
+            "vote_average": 6.6,
+            "vote_count": 120
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/wiqOdWT643wYXSGvSGLjdQSkwpM.jpg",
+            "genre_ids": [
+                16,
+                35,
+                10751,
+                14
+            ],
+            "id": 508943,
+            "original_language": "en",
+            "original_title": "Luca",
+            "overview": "In a beautiful seaside town on the Italian Riviera, two young boys experience an unforgettable summer filled with gelato, pasta and endless scooter rides. But all the fun is threatened by a deeply-held secret: they are sea monsters from another world just below the water’s surface.",
+            "popularity": 181.672,
+            "poster_path": "/7rhzEufovmmUqVjcbzMHTBQ2SCG.jpg",
+            "release_date": "2021-06-17",
+            "title": "Luca",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/nN4Gs3vZAOJ1D6FRtrwbU9VGYwU.jpg",
+            "genre_ids": [
+                16,
+                10749,
+                10751
+            ],
+            "id": 486589,
+            "original_language": "en",
+            "original_title": "Red Shoes And The Seven Dwarfs",
+            "overview": "Princes who have been turned into Dwarfs seek the red shoes of a lady in order to break the spell, although it will not be easy.",
+            "popularity": 156.401,
+            "poster_path": "/MBiKqTsouYqAACLYNDadsjhhC0.jpg",
+            "release_date": "2019-07-25",
+            "title": "Red Shoes And The Seven Dwarfs",
+            "video": false,
+            "vote_average": 7.7,
+            "vote_count": 701
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/tXQP5bdZbNWogkQhTHy0H5kqlUy.jpg",
+            "genre_ids": [
+                53,
+                28
+            ],
+            "id": 560192,
+            "original_language": "en",
+            "original_title": "Grand Isle",
+            "overview": "Walter and his neglected wife lure a young man into their Victorian home to escape a hurricane. When the man is charged with murder by Det. Jones, he must reveal the couple's wicked secrets to save himself.",
+            "popularity": 137.924,
+            "poster_path": "/8mcXb3km7hZ8aJKpxxgnvvxt9gW.jpg",
+            "release_date": "2019-12-06",
+            "title": "Grand Isle",
+            "video": false,
+            "vote_average": 6,
+            "vote_count": 168
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/2l8Mcy6MD8MoqYmQIuGcKz63Sra.jpg",
+            "genre_ids": [
+                18
+            ],
+            "id": 660943,
+            "original_language": "es",
+            "original_title": "El olvido que seremos",
+            "overview": "Portrays the life of Héctor Abad Gómez, a prominent doctor and human rights activist in the polarized, violent Medellin of the 70s. A family man worried not only for his own children but those of the underprivileged classes as well, his home was imbued with vitality and creativity, the result of an education based on tolerance and love. Nothing could foretell that a terrible cancer would take the life of one of his beloved daughters. Driven by sadness and rage, Héctor devoted himself to the social and political causes of the time. But Medellin's intolerant society would harass him until he was finally silenced.",
+            "popularity": 78.502,
+            "poster_path": "/cKCVRr3Hvy4MoV2R0tvS31C9wql.jpg",
+            "release_date": "2020-08-22",
+            "title": "Forgotten We’ll Be",
+            "video": false,
+            "vote_average": 5.9,
+            "vote_count": 7
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/lvNQKZUsw7pg79CROCFlIk8PT67.jpg",
+            "genre_ids": [
+                16,
+                14,
+                12,
+                27
+            ],
+            "id": 627661,
+            "original_language": "en",
+            "original_title": "Cranston Academy: Monster Zone",
+            "overview": "An intelligent 15-year-old high school student is unexpectedly transferred to a boarding school where he opens a portal of monsters from another dimension.",
+            "popularity": 84.089,
+            "poster_path": "/5xz0iq0vOqQpTPxMCLuGR7rlvuY.jpg",
+            "release_date": "2020-04-29",
+            "title": "Cranston Academy: Monster Zone",
+            "video": false,
+            "vote_average": 6.6,
+            "vote_count": 57
+        }
+    ],
+    "total_pages": 18,
+    "total_results": 347
+}
