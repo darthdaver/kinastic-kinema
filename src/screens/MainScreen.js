@@ -1,18 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { Animated, Dimensions, ScrollView, View, TouchableOpacity, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import PopularMovies from '../mock/main-popular-mock.json';
-import MovieCollection from '../components/MoviesCollection';
+import MovieCollection from '../components/MovieCollection';
 import MovieConstants from '../constants/movie';
 import Backdrop from '../components/Backdrop';
 import Poster from '../components/Poster';
+import { StoreContext, useStore } from '../store/StoreContext';
+import { MovieApiConstants } from '../constants/api';
+import api from '../api';
+import TabConstants from '../constants/tab';
 
 const { width, height } = Dimensions.get('window');
 
 const MainScreen = ({ navigation }) => {
-    const [popularMovies, setPopularMovies] = useState([{ id: 'empty-left' }, ...PopularMovies.results, { id: 'empty-right' }]);
-    const [playingMovies, setPlayingMovies] = useState(PopularMovies.results);
-    const [comingMovies, setComingMovies] = useState(PopularMovies.results);
+    const [popularMovies, setPopularMovies] = useState([{ id: 'empty-left' }, { id: 'empty-right' }]);
+    const [fetchData, setFetchData] = useState(true)
     const scrollX = useRef(new Animated.Value(0)).current;
     const [currentMovie, setCurrentMovie] = useState(1);
 
@@ -51,7 +54,21 @@ const MainScreen = ({ navigation }) => {
     }
     
     useEffect(() => {
-    
+        if(!fetchData) {
+            return;
+        } else {
+            const options = {
+                type: MovieApiConstants.POPULAR
+            }
+            api.movie.getMovieCollection(options,1)
+                .then((movies) => {
+                    setFetchData(false)
+                    setPopularMovies((previousState) => {
+                        previousState.splice(-1,0,...movies)
+                        return [...previousState]
+                    })
+                })    
+        }
     }, [popularMovies]);
   
     return (
@@ -92,8 +109,24 @@ const MainScreen = ({ navigation }) => {
                     renderItem={renderItem}
                 />
                 <View style={styles.gridsContainer}>
-                    <MovieCollection label={'Current Movie'} collection={playingMovies} selectMovie={selectMovie} />
-                    <MovieCollection label={'Coming Soon'} collection={comingMovies} selectMovie={selectMovie} />
+                    <MovieCollection 
+                        label={'Current Movie'}
+                        selectMovie={selectMovie}  
+                        fetch={api.movie.getMovieCollection}
+                        options={{ type: MovieApiConstants.NOW_PLAYING }} 
+                    />
+                    <MovieCollection 
+                        label={'Coming Soon'}
+                        selectMovie={selectMovie}
+                        fetch={api.movie.getMovieCollection}
+                        options={{ type: MovieApiConstants.UPCOMING }}
+                    />
+                    <MovieCollection 
+                        label={'Top Rated'}
+                        selectMovie={selectMovie}
+                        fetch={api.movie.getMovieCollection}
+                        options={{ type: MovieApiConstants.TOP_RATED }}
+                    />
                 </View>
             </ScrollView>
         </SafeAreaView>

@@ -1,7 +1,7 @@
 class Movie {
     constructor(options) {
         this.adult = options.adult || false
-        this.backdrop_path = options.movie
+        this.backdrop_path = options.backdrop_path
         this.genre_ids = options.genre_ids || []
         this.id = options.id
         this.original_language = options.original_language

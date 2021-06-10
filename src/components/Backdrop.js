@@ -6,7 +6,6 @@ import LinearGradient from 'react-native-linear-gradient';
 const { width, height } = Dimensions.get('window')
 
 const Backdrop = ({ path }) => {
-    console.log(path)
     return (
         <View style={ styles.container }>
             <Animated.View removeClippedSubviews={false} style={{ height }}>

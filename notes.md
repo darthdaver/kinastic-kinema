@@ -5,3 +5,8 @@
 # Platform
 
 - Android version > 21
+
+
+# Pagination
+
+- only single page request

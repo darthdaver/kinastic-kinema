@@ -1,40 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import GenreMoviesMock from '../mock/genre-mock.json';
-import PopularMovies from '../mock/main-popular-mock.json';
-import MovieCollection from '../components/MoviesCollection';
+import api from '../api';
+import GenreMovieCollection from '../components/GenreMovieCollection';
 
-const GenreScreen = ({ navigation }) => {
-    const [movies, setMovies] = useState(PopularMovies.results)
-
+const GenreScreen = ({ route, navigation }) => {
+    const genre = route.params.genre;
     const selectMovie = (movie) => {
         navigation.navigate('Movie', {
             movie: movie
         })
     }
 
-    useEffect(() => {
-        // API Call
-    },[])
-
     return (
         <View style={styles.genreScreen}>
-            <ScrollView style={styles.genreScreen}>
-                <View style={styles.collectionsContainer}>
-                    <MovieCollection label={'Current Movie'} collection={movies} selectMovie={selectMovie} />
-                    <MovieCollection label={'Coming Soon'} collection={movies} selectMovie={selectMovie} />
-                </View>
-            </ScrollView>
+            <View style={styles.collectionsContainer}>
+                <GenreMovieCollection 
+                    label={'Current Movies'}
+                    selectMovie={selectMovie} 
+                    fetch={api.genre.getGenreMovies}
+                    options={{ genreId: genre.id }} 
+                />
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+
     genreScreen: {
         backgroundColor: 'black',
         flex: 1
-    },
-    collectionsContainer: {
     },
     cover: {
         backgroundColor: 'yellow',

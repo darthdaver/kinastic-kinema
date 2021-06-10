@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import Backdrop from '../components/Backdrop';
 import MovieGenres from '../components/MovieGenres';
@@ -8,17 +8,16 @@ import GenresMock from '../mock/genres-mock.json';
 import Genre from '../models/Genre';
 import { Rating } from 'react-native-ratings';
 import MovieDescription from '../components/MovieDescription';
-import MovieCollection from '../components/MoviesCollection';
-import RecommendedMovies from '../mock/recommended-movies.json';
+import MovieCollection from '../components/MovieCollection';
+import api from '../api';
+import { MovieApiConstants } from '../constants/api';
 
 const { width, height } = Dimensions.get('window');
 
 const MovieScreen = ({ route, navigation }) => {
     const movie = route.params.movie;
-    const recommended = RecommendedMovies.results;
-    const movieGenres = GenresMock.genres
-        .filter((genre) => movie.genre_ids.includes(genre.id))
-        .map((genre) => new Genre(genre.id, genre.name));
+    const [fetchData, setFetchData] = useState(true)
+    const [movieGenres, setMovieGenres] = useState([])
 
     const selectMovie = (movie) => {
         navigation.push('Movie', {
@@ -26,7 +25,18 @@ const MovieScreen = ({ route, navigation }) => {
         })
     }
 
-    console.log(movie.backdrop_path || movie.poster_path)
+    useEffect(() => {
+        if (!fetchData) {
+            return;
+        }
+
+        api.genre.getGenres()
+            .then((genres) => {
+                const filteredGenres = genres.filter((genre) => movie.genre_ids.includes(genre.id));
+                setMovieGenres(filteredGenres);
+                setFetchData(false);
+            })
+    }, [movieGenres]);
 
     return (
         <View style={styles.screen}>
@@ -42,12 +52,18 @@ const MovieScreen = ({ route, navigation }) => {
                         startingValue={(movie.vote_average * 5)/10}
                         ratingBackgroundColor={"black"}
                         tintColor={"black"}
-                        imageSize={30}
+                        imageSize={25}
                     />
                     <Text style={{color:'white'}}>{movie.vote_average}</Text>
                 </View>
                 <MovieDescription overview={movie.overview} releaseDate={movie.release_date} />
-                <MovieCollection label={"Similar Movies"} collection={recommended} selectMovie={selectMovie} />
+                <MovieCollection 
+                    label={"Similar Movies"} 
+                    type={MovieApiConstants.SIMILAR}
+                    selectMovie={selectMovie} 
+                    fetch={api.movie.getSimilar}
+                    options={{ movieId: movie.id }} 
+                />
             </ScrollView>
         </View>
     )

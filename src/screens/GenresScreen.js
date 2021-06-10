@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
-import GenresMock from "../mock/genres-mock.json";
-import GenreTile from '../components/GenreTile'
-import Genre from '../models/Genre';
+import { View, StyleSheet, FlatList } from 'react-native';
+import api from '../api';
+import GenreTile from '../components/GenreTile';
 
 const GenresScreen = ({ navigation }) => {
-    const [genres, setGenres] = useState(GenresMock.genres);
+    const [genres, setGenres] = useState([]);
+    const [fetchData, setFetchData] = useState(true);
 
     const selectGenre = (genre) => {
         navigation.navigate('Genre', {
@@ -20,15 +20,22 @@ const GenresScreen = ({ navigation }) => {
     }
 
     useEffect(() => {
-        // API Call
-    },[])
+        if (!fetchData) {
+            return;
+        }
 
-    
+        api.genre.getGenres()
+            .then((genres) => {
+                setGenres(genres);
+                setFetchData(false);
+            })
+    }, [genres]);  
+
     return (
         <View style={styles.genresScreen}>
             <FlatList 
                 keyExtractor={(item, index) => item.id}
-                data={genres.map(genre => new Genre(genre.id,genre.name))} 
+                data={genres} 
                 renderItem={renderItem} 
                 numColumns={2}
             />
