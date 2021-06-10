@@ -3,13 +3,22 @@ import { FlatList, StyleSheet, View, Text } from 'react-native';
 import MovieTile from './MovieTile';
 import Backdrop from './Backdrop';
 import MovieConstants from '../../constants/movie';
+import { useRootStore } from '../../store/contexts/RootContext';
 
-const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
-    const [page, setPage] = useState(1)
-    const [fetchData, setFetchData] = useState(true);
-    const [moviesCollection, setMoviesCollection] = useState([]);
-    const [backdropPath, setBackdropPath] = useState('');
-    const fetchMore = useCallback(() => setFetchData(true), []);
+const GenreMovieCollection = ({ label, selectMovie, options }) => {
+    const { movieStore } = useRootStore();
+    const genre = movieStore.genres[options.genreId]
+    const genreMovieCollection = [...genre.collection];
+    const backdropPath = genreMovieCollection.length > 0 ? genreMovieCollection[0].backdropPath || genreMovieCollection[0].poster_path || '' : '';
+    const [fetchData, setFetchData] = useState(false);
+    const [endList, setEndList] = useState(false);
+    const endReached = useCallback(() => setEndList(true), []);
+    const fetchMore = useCallback(() => {
+        if (endReached) {
+            setFetchData(true);
+            setEndList(false);
+        }
+    }, []);
 
     const renderItem = (movieItem) => {
         return (
@@ -37,28 +46,10 @@ const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
         if(!fetchData) {
             return;
         } else {
-            fetch(options,page).then((movies) => {
-                console.log("entro")
-                setPage((previousState) => previousState + 1);
-                setFetchData(false);
-                setMoviesCollection((previousState) => {
-                    movies = movies.filter((newMovie) => {
-                        includes = false;
-                        previousState.forEach((movie) => {
-                            if (newMovie.id === movie.id) {
-                                includes = true;
-                            }
-                        });
-                        return !includes
-                    });
-                    if (backdropPath === ''){
-                        setBackdropPath(movies[0] ? movies[0].poster_path || movies[0].backdrop_path : '')
-                    }
-                    return [...previousState,...movies]
-                });
-            })
+            setFetchData(false);
+            movieStore.getGenreMovies(genre);
         }
-    }, [moviesCollection, fetchData]);
+    }, [fetchData]);
 
     return(
         <View style={styles.grid}>
@@ -66,9 +57,10 @@ const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
                 <FlatList
                     ListHeaderComponent={flatListHeader}
                     keyExtractor={(item, index) => item.id}
-                    onEndReachedThreshold={0.2}
-                    onEndReached={fetchMore}
-                    data={moviesCollection}
+                    onMomentumScrollBegin = {fetchMore}
+                    onEndReachedThreshold = {0.1}
+                    onEndReached={endList}
+                    data={genreMovieCollection}
                     numColumns={3}
                     showsHorizontalScrollIndicator={false}
                     renderItem={renderItem}

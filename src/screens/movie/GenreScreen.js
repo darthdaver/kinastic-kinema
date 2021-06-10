@@ -17,7 +17,6 @@ const GenreScreen = ({ route, navigation }) => {
                 <GenreMovieCollection 
                     label={'Current Movies'}
                     selectMovie={selectMovie} 
-                    fetch={api.genre.getGenreMovies}
                     options={{ genreId: genre.id }} 
                 />
             </View>

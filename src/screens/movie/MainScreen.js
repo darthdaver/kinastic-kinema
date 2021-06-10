@@ -7,14 +7,16 @@ import Backdrop from '../../components/movie/Backdrop';
 import Poster from '../../components/movie/Poster';
 import { MovieApiConstants } from '../../constants/api';
 import api from '../../api';
+import { useRootStore } from '../../store/contexts/RootContext';
+import { observer } from 'mobx-react';
 
 const { width, height } = Dimensions.get('window');
 
-const MainScreen = ({ navigation }) => {
-    const [popularMovies, setPopularMovies] = useState([{ id: 'empty-left' }, { id: 'empty-right' }]);
-    const [fetchData, setFetchData] = useState(true)
-    const scrollX = useRef(new Animated.Value(0)).current;
+const MainScreen = observer(({ navigation }) => {
+    const { movieStore } = useRootStore();
+    const popularMovies = [{ id: 'empty-left' }, ...movieStore.popularMovies.collection, { id: 'empty-right' }];
     const [currentMovie, setCurrentMovie] = useState(1);
+    const scrollX = useRef(new Animated.Value(0)).current;
 
     const selectMovie = (movie) => {
         navigation.navigate('Movie', {
@@ -49,24 +51,6 @@ const MainScreen = ({ navigation }) => {
             </View>
         );
     }
-    
-    useEffect(() => {
-        if(!fetchData) {
-            return;
-        } else {
-            const options = {
-                type: MovieApiConstants.POPULAR
-            }
-            api.movie.getMovieCollection(options,1)
-                .then((movies) => {
-                    setFetchData(false)
-                    setPopularMovies((previousState) => {
-                        previousState.splice(-1,0,...movies)
-                        return [...previousState]
-                    })
-                })    
-        }
-    }, [popularMovies]);
   
     return (
         <SafeAreaView style={styles.main}>
@@ -108,27 +92,24 @@ const MainScreen = ({ navigation }) => {
                 <View style={styles.gridsContainer}>
                     <MovieCollection 
                         label={'Current Movie'}
-                        selectMovie={selectMovie}  
-                        fetch={api.movie.getMovieCollection}
+                        selectMovie={selectMovie}
                         options={{ type: MovieApiConstants.NOW_PLAYING }} 
                     />
                     <MovieCollection 
                         label={'Coming Soon'}
                         selectMovie={selectMovie}
-                        fetch={api.movie.getMovieCollection}
                         options={{ type: MovieApiConstants.UPCOMING }}
                     />
                     <MovieCollection 
                         label={'Top Rated'}
                         selectMovie={selectMovie}
-                        fetch={api.movie.getMovieCollection}
                         options={{ type: MovieApiConstants.TOP_RATED }}
                     />
                 </View>
             </ScrollView>
         </SafeAreaView>
     );
-  }
+  })
   
     const styles = StyleSheet.create({
         carousel: {

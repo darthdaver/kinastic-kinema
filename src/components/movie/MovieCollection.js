@@ -1,12 +1,22 @@
+import { observer } from 'mobx-react';
 import React, { useState, useEffect, useCallback } from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
+import { useRootStore } from '../../store/contexts/RootContext';
 import MovieTile from './MovieTile';
 
-const MovieCollection = ({ label, selectMovie, fetch, options }) => {
-    const [page, setPage] = useState(1)
-    const [fetchData, setFetchData] = useState(true);
-    const [moviesCollection, setMoviesCollection] = useState([]);
-    const fetchMore = useCallback(() => setFetchData(true), []);
+const MovieCollection = observer(({ label, selectMovie, options }) => {
+    const { movieStore } = useRootStore();
+    const movieCollection = [...movieStore.getCategory(options.type).collection];
+    const [fetchData, setFetchData] = useState(false);
+    const [resetSimilar, setResetSimilar] = useState(true);
+    const [endList, setEndList] = useState(false);
+    const endReached = useCallback(() => setEndList(true), []);
+    const fetchMore = useCallback(() => {
+        if (endReached) {
+            setFetchData(true);
+            setEndList(false);
+        }
+    }, []);
 
     const renderItem = (movieItem) => {
         return (
@@ -21,26 +31,17 @@ const MovieCollection = ({ label, selectMovie, fetch, options }) => {
 
     useEffect(() => {
         if(!fetchData) {
+            if (options.movieId && resetSimilar) {
+                movieStore.resetSimilarMovies(options.movieId);
+                setResetSimilar(false);
+            }
             return;
         } else {
-            fetch(options,page).then((movies) => {
-                setPage((previousState) => previousState + 1)
-                setFetchData(false);
-                setMoviesCollection((previousState) => {
-                    movies = movies.filter((newMovie) => {
-                        includes = false;
-                        previousState.forEach((movie) => {
-                            if (newMovie.id === movie.id) {
-                                includes = true;
-                            }
-                        });
-                        return !includes
-                    })
-                    return [...previousState,...movies]
-                })
-            })
+            setFetchData(false);
+            const page = movieStore.getCategory(options.type).page;
+            movieStore.getMovieCollection(options, page);
         }
-    }, [moviesCollection, fetchData]);
+    }, [fetchData]);
 
     return(
         <View style={styles.grid}>
@@ -48,9 +49,10 @@ const MovieCollection = ({ label, selectMovie, fetch, options }) => {
             <View style={styles.containerGrid}>
                 <FlatList
                     keyExtractor={(item, index) => item.id}
-                    onEndReachedThreshold={0.2}
-                    onEndReached={fetchMore}
-                    data={moviesCollection} 
+                    onMomentumScrollBegin = {fetchMore}
+                    onEndReachedThreshold = {0.1}
+                    onEndReached={endList}
+                    data={movieCollection} 
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     renderItem={renderItem}
@@ -58,7 +60,7 @@ const MovieCollection = ({ label, selectMovie, fetch, options }) => {
             </View>
         </View>
     )
-}
+})
 
 const styles = StyleSheet.create({
     label: {

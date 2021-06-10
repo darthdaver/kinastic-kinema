@@ -9,10 +9,13 @@ import MovieDescription from '../../components/movie/MovieDescription';
 import MovieCollection from '../../components/movie/MovieCollection';
 import api from '../../api';
 import { MovieApiConstants } from '../../constants/api';
+import { observer } from 'mobx-react';
+import { useRootStore } from '../../store/contexts/RootContext';
 
 const { width, height } = Dimensions.get('window');
 
-const MovieScreen = ({ route, navigation }) => {
+const MovieScreen = observer(({ route, navigation }) => {
+    const { movieStore } = useRootStore();
     const movie = route.params.movie;
     const [fetchData, setFetchData] = useState(true)
     const [movieGenres, setMovieGenres] = useState([])
@@ -36,6 +39,13 @@ const MovieScreen = ({ route, navigation }) => {
             })
     }, [movieGenres]);
 
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            movieStore.resetSimilarMovies(movie.id);
+        });
+        return unsubscribe;
+    }, [navigation]);
+
     return (
         <View style={styles.screen}>
             <ScrollView>
@@ -57,15 +67,16 @@ const MovieScreen = ({ route, navigation }) => {
                 <MovieDescription overview={movie.overview} releaseDate={movie.release_date} />
                 <MovieCollection 
                     label={"Similar Movies"} 
-                    type={MovieApiConstants.SIMILAR}
-                    selectMovie={selectMovie} 
-                    fetch={api.movie.getSimilar}
-                    options={{ movieId: movie.id }} 
+                    selectMovie={selectMovie}
+                    options={{ 
+                        type: MovieApiConstants.SIMILAR, 
+                        movieId: movie.id 
+                    }} 
                 />
             </ScrollView>
         </View>
     )
-}
+});
 
 const styles = StyleSheet.create({
     posterContainer: {

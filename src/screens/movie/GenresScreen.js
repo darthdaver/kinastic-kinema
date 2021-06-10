@@ -1,11 +1,13 @@
+import { observer } from 'mobx-react';
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import api from '../../api';
 import GenreTile from '../../components/movie/GenreTile';
+import { useRootStore } from '../../store/contexts/RootContext';
 
-const GenresScreen = ({ navigation }) => {
-    const [genres, setGenres] = useState([]);
-    const [fetchData, setFetchData] = useState(true);
+const GenresScreen = observer(({ navigation }) => {
+    const { movieStore } = useRootStore();
+    const [genres, setGenres] = useState([...movieStore.getGenresList(true)]);
 
     const selectGenre = (genre) => {
         navigation.navigate('Genre', {
@@ -19,18 +21,6 @@ const GenresScreen = ({ navigation }) => {
         )
     }
 
-    useEffect(() => {
-        if (!fetchData) {
-            return;
-        }
-
-        api.genre.getGenres()
-            .then((genres) => {
-                setGenres(genres);
-                setFetchData(false);
-            })
-    }, [genres]);  
-
     return (
         <View style={styles.genresScreen}>
             <FlatList 
@@ -41,7 +31,7 @@ const GenresScreen = ({ navigation }) => {
             />
         </View>
     )
-}
+});
 
 
 const styles = StyleSheet.create({
