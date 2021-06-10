@@ -1,15 +1,12 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Dimensions, ScrollView, View, TouchableOpacity, StatusBar, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import PopularMovies from '../mock/main-popular-mock.json';
-import MovieCollection from '../components/MovieCollection';
-import MovieConstants from '../constants/movie';
-import Backdrop from '../components/Backdrop';
-import Poster from '../components/Poster';
-import { StoreContext, useStore } from '../store/StoreContext';
-import { MovieApiConstants } from '../constants/api';
-import api from '../api';
-import TabConstants from '../constants/tab';
+import MovieCollection from '../../components/movie/MovieCollection';
+import MovieConstants from '../../constants/movie';
+import Backdrop from '../../components/movie/Backdrop';
+import Poster from '../../components/movie/Poster';
+import { MovieApiConstants } from '../../constants/api';
+import api from '../../api';
 
 const { width, height } = Dimensions.get('window');
 

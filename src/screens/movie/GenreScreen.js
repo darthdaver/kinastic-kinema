@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import api from '../api';
-import GenreMovieCollection from '../components/GenreMovieCollection';
+import api from '../../api';
+import GenreMovieCollection from '../../components/movie/GenreMovieCollection';
 
 const GenreScreen = ({ route, navigation }) => {
     const genre = route.params.genre;

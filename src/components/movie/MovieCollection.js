@@ -1,35 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FlatList, StyleSheet, View, Text } from 'react-native';
 import MovieTile from './MovieTile';
-import Backdrop from './Backdrop';
-import MovieConstants from '../constants/movie';
 
-const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
+const MovieCollection = ({ label, selectMovie, fetch, options }) => {
     const [page, setPage] = useState(1)
     const [fetchData, setFetchData] = useState(true);
     const [moviesCollection, setMoviesCollection] = useState([]);
-    const [backdropPath, setBackdropPath] = useState('');
     const fetchMore = useCallback(() => setFetchData(true), []);
 
     const renderItem = (movieItem) => {
         return (
-            <View style={styles.tileContainer}>
-                <MovieTile 
-                    movie={movieItem.item}
-                    onSelect={() => {
-                        selectMovie(movieItem.item)
-                    }}
-                />
-            </View>
-        )
-    }
-
-    const flatListHeader = () => {
-        return (
-            <View style={styles.header}>
-                <Backdrop path={MovieConstants.POSTER_BASE_URL.concat(backdropPath)} />
-                <Text style={styles.label}>{label}</Text>
-            </View>
+            <MovieTile 
+                movie={movieItem.item}
+                onSelect={() => {
+                    selectMovie(movieItem.item)
+                }}
+            />
         )
     }
 
@@ -38,8 +24,7 @@ const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
             return;
         } else {
             fetch(options,page).then((movies) => {
-                console.log("entro")
-                setPage((previousState) => previousState + 1);
+                setPage((previousState) => previousState + 1)
                 setFetchData(false);
                 setMoviesCollection((previousState) => {
                     movies = movies.filter((newMovie) => {
@@ -50,29 +35,25 @@ const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
                             }
                         });
                         return !includes
-                    });
-                    if (backdropPath === ''){
-                        setBackdropPath(movies[0] ? movies[0].poster_path || movies[0].backdrop_path : '')
-                    }
+                    })
                     return [...previousState,...movies]
-                });
+                })
             })
         }
     }, [moviesCollection, fetchData]);
 
     return(
         <View style={styles.grid}>
+            <Text style={styles.label}>{label}</Text>
             <View style={styles.containerGrid}>
                 <FlatList
-                    ListHeaderComponent={flatListHeader}
                     keyExtractor={(item, index) => item.id}
                     onEndReachedThreshold={0.2}
                     onEndReached={fetchMore}
-                    data={moviesCollection}
-                    numColumns={3}
+                    data={moviesCollection} 
+                    horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     renderItem={renderItem}
-                    columnWrapperStyle={styles.collection}
                 />
             </View>
         </View>
@@ -80,19 +61,14 @@ const GenreMovieCollection = ({ label, selectMovie, fetch, options }) => {
 }
 
 const styles = StyleSheet.create({
-    header: {
-        height: 200
-    },
     label: {
         color: 'white',
         fontSize: 20,
-        fontWeight: "bold",
-        marginBottom: 5,
+        fontWeight: "600",
+        marginBottom: 10,
         marginLeft: 10
     },
     grid: {
-        width: '100%',
-        height: '100%',
         marginLeft: 0,
         marginBottom: 20,
         overflow: 'visible'
@@ -106,17 +82,14 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
     containerGrid: {
-        flex: 1,
         paddingLeft: 10,
         overflow: 'visible'
     },
-    collection: {
-        justifyContent: 'space-evenly'
-    },
-    tileContainer: {
-        marginVertical: 10,
+    title: {
+        textAlign: 'right',
+        fontSize: 18
     }
 })
 
-export default GenreMovieCollection;
+export default MovieCollection;
 

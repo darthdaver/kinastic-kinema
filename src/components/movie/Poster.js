@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
-import MovieConstants from '../constants/movie';
+import MovieConstants from '../../constants/movie';
 
 const Poster = ({ path }) => {
     return (

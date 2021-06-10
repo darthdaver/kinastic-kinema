@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import api from '../api';
-import GenreTile from '../components/GenreTile';
+import api from '../../api';
+import GenreTile from '../../components/movie/GenreTile';
 
 const GenresScreen = ({ navigation }) => {
     const [genres, setGenres] = useState([]);

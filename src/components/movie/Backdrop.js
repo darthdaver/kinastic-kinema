@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, Dimensions, Image, StyleSheet, View } from 'react-native';
-import MovieConstants from '../constants/movie';
+import MovieConstants from '../../constants/movie';
 import LinearGradient from 'react-native-linear-gradient';
 
 const { width, height } = Dimensions.get('window')

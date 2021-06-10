@@ -1,17 +1,15 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import GenresScreen from '../screens/GenresScreen';
-import GenreScreen from '../screens/GenreScreen';
-import MovieScreen from '../screens/MovieScreen';
+import MovieScreen from '../screens/movie/MovieScreen';
+import MainScreen from '../screens/movie/MainScreen';
 
   
 const Stack = createStackNavigator();
 
-const GenresStackNavigator = () => {
+const MoviesStackNavigator = () => {
     return (
         <Stack.Navigator 
-            initialRouteName="Genres"
+            initialRouteName="Home"
             screenOptions={{
                 headerTintColor: 'white',
                 headerTitleAlign: 'center',
@@ -22,18 +20,11 @@ const GenresStackNavigator = () => {
             }}
         >
             <Stack.Screen 
-                name="Genres" 
-                component={GenresScreen} 
+                name="Home" 
+                component={MainScreen} 
                 options={{
-                    headerTitle: 'Movie Genres'
+                    headerTitle: 'Kinema'
                 }}
-            />
-            <Stack.Screen 
-                name="Genre" 
-                component={GenreScreen} 
-                options={({route}) => ({
-                    headerTitle: route.params.name,
-                })}
             />
             <Stack.Screen 
                 name="Movie" 
@@ -46,4 +37,4 @@ const GenresStackNavigator = () => {
     )
 }
 
-export default GenresStackNavigator;
+export default MoviesStackNavigator;

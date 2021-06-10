@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Image, Text, TouchableNativeFeedback, View } from 'react-native'
-import api from '../api';
-import { MovieApiConstants } from '../constants/api';
+import api from '../../api';
+import { MovieApiConstants } from '../../constants/api';
 
 const GenreTile = ({ genre, onSelect }) => {
     //console.log(backdropPath)

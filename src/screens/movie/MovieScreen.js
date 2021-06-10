@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
-import Backdrop from '../components/Backdrop';
-import MovieGenres from '../components/MovieGenres';
-import Poster from '../components/Poster';
-import MovieConstants from '../constants/movie';
-import GenresMock from '../mock/genres-mock.json';
-import Genre from '../models/Genre';
+import Backdrop from '../../components/movie/Backdrop'
+import MovieGenres from '../../components/movie/MovieGenres';
+import Poster from '../../components/movie/Poster';
+import MovieConstants from '../../constants/movie';
 import { Rating } from 'react-native-ratings';
-import MovieDescription from '../components/MovieDescription';
-import MovieCollection from '../components/MovieCollection';
-import api from '../api';
-import { MovieApiConstants } from '../constants/api';
+import MovieDescription from '../../components/movie/MovieDescription';
+import MovieCollection from '../../components/movie/MovieCollection';
+import api from '../../api';
+import { MovieApiConstants } from '../../constants/api';
 
 const { width, height } = Dimensions.get('window');
 

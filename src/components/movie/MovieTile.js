@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Image, StyleSheet, TouchableNativeFeedback, View } from 'react-native';
-import { MovieApiConstants } from '../constants/api';
+import { MovieApiConstants } from '../../constants/api';
 
 const MovieTile = ({ movie, onSelect }) => {
     return(

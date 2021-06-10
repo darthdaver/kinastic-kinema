@@ -1,17 +1,13 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import AppTabNavigator from './src/navigation/AppTabNavigator';
-import StoreProvider from './src/store/StoreContext';
-
+import SwitchNavigator from './src/navigation/SwitchNavigator';
 
 const App = () => {
 
   return (
     <SafeAreaProvider>
-      <StoreProvider>
-        <AppTabNavigator />
-      </StoreProvider>
+        <SwitchNavigator />
     </SafeAreaProvider>
   );
 };
