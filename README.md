@@ -9,13 +9,13 @@ A simple react-native demo application.
 - [ ] Login Screen
   - [ ] email
   - [ ] password
-- [ ] Main Screen
-  - [ ] List of currently playing movies
-  - [ ] List with the upcoming movies
+- [x] Main Screen
+  - [x] List of currently playing movies
+  - [x] List with the upcoming movies
   - [ ] Logout button
-- [ ] Film Screen
-  - [ ] Cover
-  - [ ] Description
+- [x] Film Screen
+  - [x] Cover
+  - [x] Description
   - [ ] Trailer
 
 ## Packages

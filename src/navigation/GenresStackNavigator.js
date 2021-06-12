@@ -16,7 +16,7 @@ const GenresStackNavigator = () => {
                 headerTitleAlign: 'center',
                 headerMode: 'none',
                 headerStyle: {
-                    backgroundColor: 'black'
+                    backgroundColor: 'rgba(221,134,0,1)'
                 }
             }}
         >

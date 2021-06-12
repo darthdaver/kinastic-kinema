@@ -4,7 +4,6 @@ import api from '../../api';
 import { MovieApiConstants } from '../../constants/api';
 
 const GenreTile = ({ genre, onSelect }) => {
-    //console.log(backdropPath)
     const [fetchData, setFetchData] = useState(true)
     const [backdropPath, setBackdropPath] = useState('');
 

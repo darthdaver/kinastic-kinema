@@ -1,24 +1,8 @@
 import React, { useReducer, useEffect } from 'react';
 import { View, Text, TextInput, StyleSheet } from 'react-native';
 import uiConstants from '../../constants/ui';
+import inputReducer from '../../reducers/ui/inputReducer';
 
-const inputReducer = (state, action) => {
-    switch (action.type) {
-        case uiConstants.INPUT_CHANGE:
-        return {
-            ...state,
-            value: action.value,
-            isValid: action.isValid
-        };
-        case uiConstants.INPUT_BLUR:
-        return {
-            ...state,
-            touched: true
-        };
-        default:
-        return state;
-    }
-};
 
 const Input = (props) => {
     const [inputState, dispatch] = useReducer(inputReducer, {
@@ -47,23 +31,27 @@ const Input = (props) => {
         if (props.password && text.trim().length < 6) {
             isValid = false;
         } 
-        dispatch({ type: INPUT_CHANGE, value: text, isValid: isValid });
+        dispatch({ type: uiConstants.INPUT_CHANGE, value: text, isValid: isValid });
     };
 
     const lostFocusHandler = () => {
-        dispatch({ type: INPUT_BLUR });
+        dispatch({ type: uiConstants.INPUT_BLUR });
     };
 
     return (
         <View style={styles.formControl}>
             <Text style={styles.label}>{props.label}</Text>
-            <TextInput
-                {...props}
-                style={styles.input}
-                value={inputState.value}
-                onChangeText={textChangeHandler}
-                onBlur={lostFocusHandler}
-            />
+            <View style={styles.inputWrapperExt}>
+                <View style={styles.inputWrapperInt}>
+                    <TextInput
+                        {...props}
+                        style={styles.input}
+                        value={inputState.value}
+                        onChangeText={textChangeHandler}
+                        onBlur={lostFocusHandler}
+                    />
+                </View>
+            </View>
             {!inputState.isValid && inputState.touched && (
                 <View style={styles.errorContainer}>
                 <Text style={styles.errorText}>{props.errorText}</Text>
@@ -75,20 +63,37 @@ const Input = (props) => {
 
 const styles = StyleSheet.create({
     formControl: {
-        width: '100%'
+        width: '65%',
+        alignSelf: 'center',
+    },
+    inputWrapperExt: {
+        backgroundColor: "white",
+        paddingHorizontal: 3,
+        paddingVertical: 3,
+        borderRadius: 0
+    },
+    inputWrapperInt: {
+        backgroundColor: "black",
+        borderRadius: 0
+
     },
     label: {
         fontFamily: 'open-sans-bold',
-        marginVertical: 8
+        marginVertical: 8,
+        color: 'white'
     },
     input: {
-        paddingHorizontal: 2,
-        paddingVertical: 5,
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1
+        color: 'white',
+        borderRadius: 0,
+        borderColor: 'white',
+        backgroundColor: 'rgba(255,255,255,0.3)',
+        textAlign: 'center',
     },
     errorContainer: {
-        marginVertical: 5
+        marginVertical: 10,
+        backgroundColor:'rgba(255,255,255,0.2)',
+        paddingHorizontal: 10,
+        paddingVertical: 5
     },
     errorText: {
         fontFamily: 'open-sans',

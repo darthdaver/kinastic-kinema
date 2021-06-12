@@ -1,15 +1,14 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import MovieScreen from '../screens/movie/MovieScreen';
-import MainScreen from '../screens/movie/MainScreen';
+import ProfileScreen from '../screens/auth/ProfileScreen';
 
   
 const Stack = createStackNavigator();
 
-const MoviesStackNavigator = () => {
+const ProfileStackNavigator = () => {
     return (
         <Stack.Navigator 
-            initialRouteName="Home"
+            initialRouteName="Profile"
             screenOptions={{
                 headerTintColor: 'white',
                 headerTitleAlign: 'center',
@@ -20,21 +19,14 @@ const MoviesStackNavigator = () => {
             }}
         >
             <Stack.Screen 
-                name="Home" 
-                component={MainScreen} 
+                name="Profile" 
+                component={ProfileScreen} 
                 options={{
-                    headerTitle: 'Kinema'
+                    headerTitle: 'Profile'
                 }}
-            />
-            <Stack.Screen 
-                name="Movie" 
-                component={MovieScreen}
-                options={({route}) => ({
-                    headerTitle: route.params.title,
-                })}
             />
         </Stack.Navigator>
     )
 }
 
-export default MoviesStackNavigator;
+export default ProfileStackNavigator;
