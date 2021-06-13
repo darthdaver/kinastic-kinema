@@ -114,13 +114,15 @@ const SignUpScreen = ({ navigation, route }) => {
                         onPress: submit
                     }}
                 />
-                <TouchableOpacity 
-                    disabled={ !(enable) }
-                    onPress={submit}
-                    style={styles.signup}
-                >
-                    <Text>SIGN UP</Text>
-                </TouchableOpacity>
+                <View style={{ opacity: (enable) ? 1 : 0.4}}>
+                    <TouchableOpacity
+                        disabled={ !(enable) }
+                        onPress={submit}
+                        style={[styles.signup]}
+                    >
+                        <Text>SIGN UP</Text>
+                    </TouchableOpacity>
+                </View>
                 <Text style={styles.description}>Do you have an account?</Text>
                 <TouchableOpacity 
                     style={styles.login}

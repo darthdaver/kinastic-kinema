@@ -8,7 +8,11 @@ const MovieTrailer = ({ trailerId }) => {
         <View style={styles.trailerExternal}>
             <Text style={styles.titleText}>Trailer</Text>
             <View style={styles.trailerContainer}>
-                <YoutubePlayer height={250} videoId={trailerId} />
+                <YoutubePlayer 
+                    height={250} 
+                    videoId={trailerId}
+                    webViewStyle={ {opacity:0.99} }    
+                />
             </View>
         </View>
     )

@@ -124,8 +124,6 @@ class Storage {
 
         const response = await this.storeUser(userData);
 
-        console.log(response)
-
         if (response === StorageConstants.SUCCESS_STORE_USER) {
             return [StorageConstants.SUCCESS_SET_SESSION, user];
         } else {

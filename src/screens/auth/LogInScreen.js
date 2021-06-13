@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect, useReducer } from 'react';
-import { KeyboardAvoidingView, StyleSheet, Button, Image, Text } from 'react-native';
+import { ScrollView, KeyboardAvoidingView, StyleSheet, View, Image, Text } from 'react-native';
 import SignForm from '../../components/auth/SignForm';
 import Input from '../../components/ui/Input';
 import uiConstants from '../../constants/ui';
@@ -98,39 +98,47 @@ const LogInScreen = observer(({ navigation }) => {
             style={styles.screen}
             behavior="height"
         >
-            <Image 
-                source={logo}
-                resizeMode="contain"
-                style={styles.logo}
-            />
-            <SignForm 
-                inputs={
-                    logInForm.fields.map((field) => {
-                        return {
-                            ...field,
-                            onInputChange: inputChangeHandler
-                        }
-                    })
-                } 
-                submit={{
-                    ...logInForm.submit,
-                    onPress: submit
-                }}
-            />
-            <TouchableOpacity 
-                disabled={ !(enable) }
-                onPress={submit}
-                style={styles.login}
+            <ScrollView 
+                style={styles.scrollViewContainer}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{alignItems: 'center'}}
             >
-                <Text>LOGIN</Text>
-            </TouchableOpacity>
-            <Text style={styles.description}>Don't have an account yet?</Text>
-            <TouchableOpacity 
-                style={styles.signup}
-                onPress={signUp}
-            >
-                <Text>SIGN UP</Text>
-            </TouchableOpacity>
+                <Image 
+                    source={logo}
+                    resizeMode="contain"
+                    style={styles.logo}
+                />
+                <SignForm 
+                    inputs={
+                        logInForm.fields.map((field) => {
+                            return {
+                                ...field,
+                                onInputChange: inputChangeHandler
+                            }
+                        })
+                    } 
+                    submit={{
+                        ...logInForm.submit,
+                        onPress: submit
+                    }}
+                />
+                <View style={{ opacity: (enable) ? 1 : 0.4}}>
+                    <TouchableOpacity
+                        disabled={ !(enable) }
+                        onPress={submit}
+                        style={[styles.login]}
+                    >
+                        <Text>LOGIN</Text>
+                    </TouchableOpacity>
+                </View>
+                <Text style={styles.description}>Don't have an account yet?</Text>
+                <TouchableOpacity 
+                    style={styles.signup}
+                    onPress={signUp}
+                >
+                    <Text>SIGN UP</Text>
+                </TouchableOpacity>
+            </ScrollView>
         </KeyboardAvoidingView>
         
     )
@@ -150,7 +158,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(221,134,0,1)',
         width: 150,
         paddingVertical: 15,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     signup: {
         backgroundColor: 'white',

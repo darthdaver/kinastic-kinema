@@ -51,8 +51,6 @@ const MovieScreen = observer(({ route, navigation }) => {
 
     useEffect(() => {
         api.movie.getTrailer(movie.id).then((movieTrailers) => {
-            console.log("trailer")
-            console.log(movieTrailers);
             setTrailers(movieTrailers);
         })
     }, [])
