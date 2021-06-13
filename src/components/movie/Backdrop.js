@@ -26,7 +26,7 @@ const Backdrop = ({ path }) => {
 const styles = StyleSheet.create({
     container: { 
         height: MovieConstants.BACKDROP_HEIGHT,
-        marginBottom: height * 0.3,
+        marginBottom: height * 0.25,
         width: width 
     },
     backdropImage: {
