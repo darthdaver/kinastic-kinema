@@ -67,3 +67,8 @@ You can find the report of the project on the [wiki page](https://github.com/dar
 ## Reat Native development environment setup
 
 To setup the development environment and run a react native application on your machine, follow the [official guide](https://reactnative.dev/docs/environment-setup).
+
+## Credits
+
+### Project Design Inspirations
+- [Home carousel](https://www.youtube.com/watch?v=yV-2HRzNX9o&t=1s)
