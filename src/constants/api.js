@@ -4,5 +4,6 @@ export const MovieApiConstants = {
     NOW_PLAYING: 'now_playing',
     TOP_RATED: 'top_rated',
     POPULAR: 'popular',
-    SIMILAR: 'similar'
+    SIMILAR: 'similar',
+    TRAILER: "Trailer"
 }

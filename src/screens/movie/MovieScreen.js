@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
+import { Container, View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import Backdrop from '../../components/movie/Backdrop'
 import MovieGenres from '../../components/movie/MovieGenres';
 import Poster from '../../components/movie/Poster';
@@ -11,7 +11,8 @@ import api from '../../api';
 import { MovieApiConstants } from '../../constants/api';
 import { observer } from 'mobx-react';
 import { useRootStore } from '../../store/contexts/RootContext';
-import MarginBottom from '../../components/ui/MarginBottom';
+import MovieTrailer from '../../components/movie/MovieTrailer';
+import YoutubePlayer from "react-native-youtube-iframe";
 
 const { width, height } = Dimensions.get('window');
 
@@ -20,6 +21,7 @@ const MovieScreen = observer(({ route, navigation }) => {
     const movie = route.params.movie;
     const [fetchData, setFetchData] = useState(true)
     const [movieGenres, setMovieGenres] = useState([])
+    const [trailers, setTrailers] = useState([])
 
     const selectMovie = (movie) => {
         navigation.push('Movie', {
@@ -47,6 +49,14 @@ const MovieScreen = observer(({ route, navigation }) => {
         return unsubscribe;
     }, [navigation]);
 
+    useEffect(() => {
+        api.movie.getTrailer(movie.id).then((movieTrailers) => {
+            console.log("trailer")
+            console.log(movieTrailers);
+            setTrailers(movieTrailers);
+        })
+    }, [])
+
     return (
         <View style={styles.screen}>
             <ScrollView>
@@ -66,6 +76,12 @@ const MovieScreen = observer(({ route, navigation }) => {
                     <Text style={{color:'white'}}>{movie.vote_average}</Text>
                 </View>
                 <MovieDescription overview={movie.overview} releaseDate={movie.release_date} />
+                {
+                    trailers.length > 0 ?
+                        <MovieTrailer trailerId={trailers[0].key} />
+                    :
+                        null
+                }
                 <MovieCollection 
                     label={"Similar Movies"} 
                     selectMovie={selectMovie}
@@ -74,7 +90,6 @@ const MovieScreen = observer(({ route, navigation }) => {
                         movieId: movie.id 
                     }} 
                 />
-                <MarginBottom />
             </ScrollView>
         </View>
     )
