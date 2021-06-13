@@ -14,7 +14,7 @@ const ProfileStackNavigator = () => {
                 headerTitleAlign: 'center',
                 headerMode: 'none',
                 headerStyle: {
-                    backgroundColor: 'rgba(221,134,0,1)'
+                    backgroundColor: 'black'
                 }
             }}
         >

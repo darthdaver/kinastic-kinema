@@ -5,6 +5,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MoviesStackNavigator from './MoviesStackNavigator';
 import GenresStackNavigator from './GenresStackNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
+import moviesIcon from '../../assets/images/movies_icon.png';
+import profileIcon from '../../assets/images/profile_icon.png';
+import genresIcon from '../../assets/images/genres_icon.png';
 
   
 const Tab = createBottomTabNavigator();
@@ -13,21 +16,59 @@ const AppTabNavigator = () => {
     return (
         <Tab.Navigator
             tabBarOptions={{
+                showLabel: false,
                 style: {
-                    position: 'absolute',
-                    bottom: 25,
-                    left: 20,
-                    right: 20,
-                    backgroundColor: 'rgba(221,134,0,1)',
-                    borderRadius: 15,
-                    height: 60,
-                    ...styles.shadow
+                    borderTopColor:'black',
+                    backgroundColor: 'black',
+                    height: 40
                 }
             }}
         >
-            <Tab.Screen name="Home" component={MoviesStackNavigator} />
-            <Tab.Screen name="Genres" component={GenresStackNavigator} />
-            <Tab.Screen name="Profile" component={ProfileStackNavigator} />
+            <Tab.Screen 
+                name="Home" 
+                component={MoviesStackNavigator} 
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View style={styles.iconContainer}>
+                            <Image 
+                                source={moviesIcon}
+                                resizeMode='contain'
+                                style={[styles.icon, { tintColor: focused ? 'rgba(221,134,0,1)' : 'rgba(255,255,255,0.7)' }]}
+                            />
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen 
+                name="Genres" 
+                component={GenresStackNavigator} 
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View style={styles.iconContainer}>
+                            <Image 
+                                source={genresIcon}
+                                resizeMode='contain'
+                                style={[styles.icon, { height: 22, width: 22, tintColor: focused ? 'rgba(221,134,0,1)' : 'rgba(255,255,255,0.7)' }]}
+                            />
+                        </View>
+                    )
+                }}
+            />
+            <Tab.Screen 
+                name="Profile" 
+                component={ProfileStackNavigator} 
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View style={styles.iconContainer}>
+                            <Image 
+                                source={profileIcon}
+                                resizeMode='contain'
+                                style={[styles.icon, { tintColor: focused ? 'rgba(221,134,0,1)' : 'rgba(255,255,255,0.7)' }]}
+                            />
+                        </View>
+                    )
+                }}
+            />
         </Tab.Navigator>
     )
 }
@@ -42,6 +83,16 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.5,
         elevation: 5
+    },
+    icon: {
+        width: 30,
+        height: 30,
+    },
+    iconContainer: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    iconText: {
     }
 })
 

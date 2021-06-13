@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import api from '../../api';
 import GenreTile from '../../components/movie/GenreTile';
+import MarginBottom from '../../components/ui/MarginBottom';
 import { useRootStore } from '../../store/contexts/RootContext';
 
 const GenresScreen = observer(({ navigation }) => {
@@ -36,6 +36,7 @@ const GenresScreen = observer(({ navigation }) => {
 
 const styles = StyleSheet.create({
     genresScreen: {
+        flex: 1,
         backgroundColor: 'black'
     }
 })

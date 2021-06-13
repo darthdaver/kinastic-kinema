@@ -52,9 +52,6 @@ const LogInScreen = observer(({ navigation }) => {
     const submit = () => {
         const inputData = formState.inputValues;
         Storage.login(inputData).then(([response,user]) => {
-            console.log(1)
-            console.log(response)
-            console.log(user)
             switch (response) {
                 case StorageConstants.SUCCESS_LOGIN:
                     showMessage({
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
         marginBottom: 40
     },
     logo: {
-        height: 150, 
+        height: 100, 
         width: "100%", 
         marginTop: 20
     },

@@ -46,12 +46,12 @@ class AuthStore {
     }
 
     logout() {
+        this.state = AuthConstants.AUTHENTICATION;
         this.name = '';
         this.surname = '';
         this.email = '';
         this.password = '';
         this.token = '';
-        this.state = AuthConstants.AUTHENTICATION;
     }
 
     setState(state) {

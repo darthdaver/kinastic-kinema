@@ -13,7 +13,6 @@ const SplashScreen = observer(() => {
 
     useEffect(() => {
         Storage.getUser().then(([response,user]) => {
-            console.log(response)
             switch (response) {
                 case StorageConstants.SUCCESS_GET_USER:
                     setTimeout(() => {

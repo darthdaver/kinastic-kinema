@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
     },
     inputWrapperExt: {
         backgroundColor: "white",
-        paddingHorizontal: 3,
-        paddingVertical: 3,
+        paddingHorizontal: 1.5,
+        paddingVertical: 1.5,
         borderRadius: 0
     },
     inputWrapperInt: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         color: 'white',
         borderRadius: 0,
         borderColor: 'white',
-        backgroundColor: 'rgba(255,255,255,0.3)',
+        backgroundColor: 'rgba(255,255,255,0.12)',
         textAlign: 'center',
     },
     errorContainer: {

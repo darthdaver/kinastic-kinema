@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import api from '../../api';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import GenreMovieCollection from '../../components/movie/GenreMovieCollection';
+import MarginBottom from '../../components/ui/MarginBottom';
 
 const GenreScreen = ({ route, navigation }) => {
     const genre = route.params.genre;
@@ -20,6 +20,7 @@ const GenreScreen = ({ route, navigation }) => {
                     options={{ genreId: genre.id }} 
                 />
             </View>
+            <MarginBottom />
         </View>
     )
 }

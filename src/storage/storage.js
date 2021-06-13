@@ -64,7 +64,6 @@ class Storage {
     
     static requestSession = async () => {
         const session = await api.auth.requestSession();
-        console.log(session)
         return session;
     }
     
@@ -122,8 +121,6 @@ class Storage {
                 expiration: session.expires_at
             }
         }
-
-        console.log(user)
 
         const response = await this.storeUser(userData);
 

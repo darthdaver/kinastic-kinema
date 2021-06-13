@@ -6,9 +6,9 @@ import MovieConstants from '../../constants/movie';
 import Backdrop from '../../components/movie/Backdrop';
 import Poster from '../../components/movie/Poster';
 import { MovieApiConstants } from '../../constants/api';
-import api from '../../api';
 import { useRootStore } from '../../store/contexts/RootContext';
 import { observer } from 'mobx-react';
+import MarginBottom from '../../components/ui/MarginBottom';
 
 const { width, height } = Dimensions.get('window');
 

@@ -1,7 +1,9 @@
 import React from 'react';
+import { View, Image } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import MovieScreen from '../screens/movie/MovieScreen';
 import MainScreen from '../screens/movie/MainScreen';
+import logo from '../../assets/images/kinema_logo.png';
 
   
 const Stack = createStackNavigator();
@@ -15,7 +17,8 @@ const MoviesStackNavigator = () => {
                 headerTitleAlign: 'center',
                 headerMode: 'none',
                 headerStyle: {
-                    backgroundColor: 'rgba(221,134,0,1)'
+                    backgroundColor: 'black',
+                    height: 60
                 }
             }}
         >
@@ -23,8 +26,17 @@ const MoviesStackNavigator = () => {
                 name="Home" 
                 component={MainScreen} 
                 options={{
-                    headerTitle: 'Kinema'
+                    headerTitle: () => (
+                        <View>
+                            <Image 
+                                source={logo}
+                                resizeMode={'contain'}
+                                style={{height: 50}}
+                            />
+                        </View>
+                    )
                 }}
+                
             />
             <Stack.Screen 
                 name="Movie" 

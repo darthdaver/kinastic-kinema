@@ -5,14 +5,15 @@ import { observer } from 'mobx-react';
 import { useRootStore } from '../../store/contexts/RootContext';
 import Storage from '../../storage/storage';
 import { showMessage } from 'react-native-flash-message';
-import profileLogo from '../../../assets/images/profile_white_small.png';
+import profileLogo from '../../../assets/images/profile_white.png';
+import MarginBottom from '../../components/ui/MarginBottom';
+import { StackActions } from '@react-navigation/native';
 
-const ProfileScreen = observer(() => {
+const ProfileScreen = observer(({ navigation }) => {
     const { authStore } = useRootStore();
     
     const logout = () => {
         Storage.logout().then((response) => {
-            console.log(response)
             switch (response) {
                 case StorageConstants.SUCCESS_LOGOUT:
                     showMessage({
@@ -20,7 +21,11 @@ const ProfileScreen = observer(() => {
                         description: "Looking forward to see you again soon!",
                         type: 'success'
                     })
-                    authStore.logout()
+                    navigation.reset({
+                        index: 0,
+                        routes: [{name:'Home'}]
+                    });
+                    authStore.logout();
                     break;
                 case StorageConstants.UNEXPECTED_LOGOUT:
                     showMessage({
@@ -61,6 +66,7 @@ const ProfileScreen = observer(() => {
             >
                 <Text>LOGOUT</Text>
             </TouchableOpacity>
+            <MarginBottom />
         </ScrollView>
     )
 })

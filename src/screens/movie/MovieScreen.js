@@ -11,6 +11,7 @@ import api from '../../api';
 import { MovieApiConstants } from '../../constants/api';
 import { observer } from 'mobx-react';
 import { useRootStore } from '../../store/contexts/RootContext';
+import MarginBottom from '../../components/ui/MarginBottom';
 
 const { width, height } = Dimensions.get('window');
 
@@ -73,6 +74,7 @@ const MovieScreen = observer(({ route, navigation }) => {
                         movieId: movie.id 
                     }} 
                 />
+                <MarginBottom />
             </ScrollView>
         </View>
     )

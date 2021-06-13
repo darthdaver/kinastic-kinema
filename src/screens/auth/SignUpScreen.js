@@ -49,7 +49,6 @@ const SignUpScreen = ({ navigation, route }) => {
     const submit = () => {
         const inputData = formState.inputValues;
         Storage.signUp(inputData).then((response) => {
-            console.log(response);
             switch (response) {
                 case StorageConstants.SUCCESS_SIGNUP:
                     showMessage({
@@ -159,7 +158,7 @@ const styles = StyleSheet.create({
         marginBottom: 40
     },
     logo: {
-        height: 150, 
+        height: 100, 
         width: "100%", 
         marginTop: 20
     },
