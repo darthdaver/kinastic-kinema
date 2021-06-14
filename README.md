@@ -50,7 +50,7 @@ You can find the report of the project on the [wiki page](https://github.com/dar
 
           npm start -- --reset-cache
 
-      The command should solve the problem, recomputing the environment variables. If the first solution does not work, please clone the project again and pay attention to add the and properly setup the `.env` file, before to run the application.
+      The command should solve the problem, recomputing the environment variables. If the first solution does not work, please clone the project again and pay attention to add and properly setup the `.env` file, before to run the application.
 
 1. Install the dependences and set up the project with the command:
   
@@ -64,7 +64,7 @@ You can find the report of the project on the [wiki page](https://github.com/dar
 
         npm run android
 
-## Reat Native development environment setup
+## React Native development environment setup
 
 To setup the development environment and run a react native application on your machine, follow the [official guide](https://reactnative.dev/docs/environment-setup).
 
